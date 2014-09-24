@@ -900,6 +900,16 @@ body:not(.post-template) .post-title {
     margin: 0 -13%;
 }
 
+/* Set off caption text */
+
+.post-content figcaption {
+    font-size: .9em;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: .9em;
+    padding: 0 15px;
+}
+
 /* The author credit area after the post */
 .post-footer {
     position: relative;
@@ -1635,6 +1645,10 @@ body:not(.post-template) .post-title {
         margin: 0 -16px; /* get rid of margins */
         min-width: 0;
         max-width: 112%; /* fallback when calc doesn't work */
+    }
+
+    .post-content figcaption {
+        padding: 0;
     }
 
     .post-meta {
