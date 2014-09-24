@@ -1458,6 +1458,10 @@ body:not(.post-template) .post-title {
         padding: 0;
     }
 
+    .post-content figcaption {
+        padding: 0;
+    }
+
 }
 
 
@@ -1645,10 +1649,6 @@ body:not(.post-template) .post-title {
         margin: 0 -16px; /* get rid of margins */
         min-width: 0;
         max-width: 112%; /* fallback when calc doesn't work */
-    }
-
-    .post-content figcaption {
-        padding: 0;
     }
 
     .post-meta {
