@@ -768,47 +768,6 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-title a {
-
-}
-/**
-Tympanus sexy hover : [ Title ]
-    http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-1
-*
-.post-title a::before {
-    margin-right: 10px;
-    content: '[';
-    -webkit-transform: translateX(-20px);
-    -moz-transform: translateX(-20px);
-    transform: translateX(-20px);
-}
-
-.post-title a::after {
-    margin-left: 10px;
-    content: ']';
-    -webkit-transform: translateX(20px);
-    -moz-transform: translateX(20px);
-    transform: translateX(20px);
-}
-
-.post-title a::before,
-.post-title a::after {
-    display: inline-block;
-    opacity: 0;
-    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-    transition: transform 0.3s, opacity 0.2s;
-}
-
-.post-title a:hover::before,
-.post-title a:hover::after {
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-    -moz-transform: translateX(0px);
-    transform: translateX(0px);
-}
-/* end tympanus */
-
 /**
 tympanus sexy hover: underline
     http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-3
