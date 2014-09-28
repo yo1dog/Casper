@@ -1792,7 +1792,7 @@ body:not(.post-template) .post-title {
     margin-top: 4rem;
 }
 
-.post {
+.post-featured-image-wrapper .post {
     padding: 2rem;
     background-color: rgba(0, 0, 0, .5);
     color: white;
