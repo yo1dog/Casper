@@ -1798,7 +1798,8 @@ body:not(.post-template) .post-title {
     color: white;
 }
 
-.post a {
+.post-title a,
+.post-excerpt a {
     color: white;
 }
 /**
