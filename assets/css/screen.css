@@ -1329,6 +1329,109 @@ body:not(.post-template) .post-title {
 
 
 /* ==========================================================================
+   14. Novasper
+   ========================================================================== */
+
+.home-template .main-header {
+    margin-bottom: 0;
+}
+
+
+.post {
+    margin: auto;
+}
+
+.post::after{
+    display: none;
+}
+
+.post-excerpt-wrapper {
+    background-color: black;
+    padding: 2rem 0;
+}
+
+.post-image {
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 6rem 0;
+}
+
+.post-image .post {
+    border-bottom: none;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.post-excerpt-wrapper .post {
+    padding: 2rem;
+    color: white;
+}
+
+.post .post-date {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.post-title a,
+.post-excerpt a {
+    color: white;
+}
+/**
+Tympanus sexy hover : [ Title ]
+    http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-1
+*/
+.post-title a::after {
+    display: inline-block;
+    opacity: 0;
+    margin-left: 10px;
+    content: '»';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.post-title a:focus{
+    outline: none;
+}
+
+.post-title a:hover::after,
+.post-title a:focus::after{
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
+/* end tympanus */
+
+/* Set off caption text */
+
+.post-content figcaption {
+    font-size: .9em;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: .9em;
+    padding: 0 15px;
+}
+
+@media only screen and (max-width: 500px) {
+    .post-excerpt-wrapper,
+    .post-excerpt-wrapper.post-image {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .post-content figcaption {
+        padding: 0;
+    }
+}
+
+
+
+/* ==========================================================================
    10. Media Queries - Smaller than 900px
    ========================================================================== */
 
@@ -1780,73 +1883,3 @@ body:not(.post-template) .post-title {
    End of file. Animations should be the last thing here. Do not add stuff
    below this point, or it will probably fuck everything up.
    ========================================================================== */
-
-/* ==========================================================================
-   14. Novasper
-   ========================================================================== */
-
-.post-featured-image-wrapper {
-    background-size: cover;
-    background-position: 50% 50%;
-    padding: 2rem;
-    margin-top: 4rem;
-}
-
-.post-featured-image-wrapper .post {
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, .5);
-    color: white;
-}
-
-.post-title a,
-.post-excerpt a {
-    color: white;
-}
-/**
-Tympanus sexy hover : [ Title ]
-    http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-1
-*/
-.post-title a::after {
-    display: inline-block;
-    opacity: 0;
-    margin-left: 10px;
-    content: '»';
-    -webkit-transform: translateX(20px);
-    -moz-transform: translateX(20px);
-    transform: translateX(20px);
-    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-    transition: transform 0.3s, opacity 0.2s;
-}
-
-.post-title a:focus{
-    outline: none;
-}
-
-.post-title a:hover::after,
-.post-title a:focus::after{
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-    -moz-transform: translateX(0px);
-    transform: translateX(0px);
-}
-/* end tympanus */
-
-/* Set off caption text */
-
-.post-content figcaption {
-    font-size: .9em;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: .9em;
-    padding: 0 15px;
-}
-
-@media only screen and (max-width: 500px) {
-}
-
-@media only screen and (max-width: 900px) {
-    .post-content figcaption {
-        padding: 0;
-    }
-}
