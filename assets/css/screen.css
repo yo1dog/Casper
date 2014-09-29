@@ -1331,22 +1331,25 @@ body:not(.post-template) .post-title {
 /* ==========================================================================
    14. Novasper
    ========================================================================== */
-
-.home-template .main-header {
+/* invert colors on non-post pages */
+body:not(.post-template) {
+    background-color: black;
+    color: white;
+}
+/* no gap leading into the post listings */
+body:not(.post-template) .main-header {
     margin-bottom: 0;
 }
 
-
 .post {
-    margin: auto;
+    margin: 0 auto;
 }
-
+/* hide those circles */
 .post::after{
     display: none;
 }
 
 .post-excerpt-wrapper {
-    background-color: black;
     padding: 2rem 0;
 }
 
@@ -1420,6 +1423,10 @@ Tympanus sexy hover : [ Title ]
     .post-excerpt-wrapper,
     .post-excerpt-wrapper.post-image {
         padding: 0;
+    }
+    .post-excerpt-wrapper .post,
+    .post-excerpt-wrapper.post-image .post {
+        margin: 0;
     }
 }
 
