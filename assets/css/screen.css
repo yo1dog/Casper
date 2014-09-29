@@ -1254,40 +1254,10 @@ body:not(.post-template) .post-title {
     border-color: #98a0a4;
 }
 
-.extra-pagination {
-    display: none;
-    border-bottom: #EBF2F6 1px solid;
-}
-.extra-pagination:after {
-    display: block;
-    content: "";
-    width: 7px;
-    height: 7px;
-    border: #E7EEF2 1px solid;
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    margin-left: -5px;
-    background: #FFF;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    box-shadow: #FFF 0 0 0 5px;
-}
-.extra-pagination .pagination {
-    width: auto;
-}
-
 /* On page2+ make all the headers smaller */
 .archive-template .main-header {
     max-height: 30%;
 }
-
-/* On page2+ show extra pagination controls at the top of post list */
-.archive-template .extra-pagination {
-    display: block;
-}
-
 
 /* ==========================================================================
    9. Footer - The bottom of every page
