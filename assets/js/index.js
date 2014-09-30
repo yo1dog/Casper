@@ -41,7 +41,8 @@
             var $this = $(this),
                 contentWidth = $postContent.outerWidth(), // Width of the content
                 imageWidth = this.naturalWidth; // Original image resolution
-
+            //add 20 for my 700px images from the WP days to get the oversize effect
+            imageWidth += 20;
             if (imageWidth >= contentWidth) {
                 $this.addClass('full-img');
             } else {
