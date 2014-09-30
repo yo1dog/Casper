@@ -1303,7 +1303,7 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 /* invert colors on non-post pages */
 body:not(.post-template) {
-    background-color: black;
+    background-color: #1D1D1D;
     color: white;
 }
 /* no gap leading into the post listings */
@@ -1387,6 +1387,22 @@ Tympanus sexy hover : [ Title ]
     text-align: center;
     margin-bottom: .9em;
     padding: 0 15px;
+}
+
+.author-profile {
+    border-bottom: none;
+}
+
+.author-profile::after {
+    display: none;
+}
+
+.author-title {
+    color: white;
+}
+
+.site-footer {
+    border-top: none;
 }
 
 @media only screen and (max-width: 500px) {
