@@ -1298,11 +1298,11 @@ body:not(.post-template) .post-title {
 
 
 /* ==========================================================================
-   14. Novasper
+   13. Novasper
    ========================================================================== */
 /* invert colors on non-post pages */
 body:not(.post-template) {
-    background-color: #1D1D1D;
+    background-color: #171717;
     color: white;
 }
 /* no gap leading into the post listings */
@@ -1401,9 +1401,24 @@ Tympanus sexy hover : [ Title ]
     color: white;
 }
 
+/* Override colors on footers */
+.pagination,
+.site-footer {
+    color: #CDCDCD;
+}
+.pagination a,
+.site-footer a{
+    color: white;
+}
+.pagination a:hover,
+.site-footer a:hover{
+    color: #AAA;
+}
+
 .site-footer {
     border-top: none;
 }
+
 
 @media only screen and (max-width: 500px) {
     .post-excerpt-wrapper,
