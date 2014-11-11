@@ -1308,6 +1308,7 @@ body:not(.post-template) {
 /* no gap leading into the post listings */
 body:not(.post-template) .main-header {
     margin-bottom: 0;
+    padding: 6em 0;
 }
 
 .post {
