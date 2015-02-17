@@ -1326,7 +1326,7 @@ body:not(.post-template) .main-header {
 .post-image {
     background-size: cover;
     background-position: 50% 50%;
-    padding: 6rem 0;
+    padding: 10rem 0;
 }
 
 .post-image .post {
@@ -1353,7 +1353,7 @@ body:not(.post-template) .main-header {
 Tympanus sexy hover : [ Title ]
     http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-1
 */
-.post-title a::after {
+.post-title::after {
     display: inline-block;
     opacity: 0;
     margin-left: 10px;
@@ -1366,12 +1366,12 @@ Tympanus sexy hover : [ Title ]
     transition: transform 0.3s, opacity 0.2s;
 }
 
-.post-title a:focus{
+.post-title:focus{
     outline: none;
 }
 
-.post-title a:hover::after,
-.post-title a:focus::after{
+.post-title:hover::after,
+.post-title:focus::after{
     opacity: 1;
     -webkit-transform: translateX(0px);
     -moz-transform: translateX(0px);
