@@ -1753,14 +1753,6 @@ Tympanus sexy hover : [ Title ]
         padding: 0;
     }
 
-    .post-content .full-img {
-        width: auto;
-        width: calc(100% + 32px); /* expand with to image + margins */
-        margin: 0 -16px; /* get rid of margins */
-        min-width: 0;
-        max-width: 112%; /* fallback when calc doesn't work */
-    }
-
     .post-meta {
         font-size: 1.3rem;
         margin-top: 1rem;
