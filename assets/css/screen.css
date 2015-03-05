@@ -1556,15 +1556,15 @@ end tympanus */
 
 /* Override colors on footers */
 .pagination,
-.site-footer {
+body:not(.post-template):not(.page-template) .site-footer {
     color: #CDCDCD;
 }
 .pagination a,
-.site-footer a{
+body:not(.post-template):not(.page-template) .site-footer a{
     color: white;
 }
 .pagination a:hover,
-.site-footer a:hover{
+body:not(.post-template):not(.page-template) .site-footer a:hover{
     color: #AAA;
 }
 
