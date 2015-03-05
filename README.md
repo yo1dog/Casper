@@ -29,6 +29,10 @@ Vertically oriented images are limited to 150% of the user's viewport's height, 
 
 There's a cute animation when you hover over post titles. That's all.
 
+#### Inverted Colors
+
+This theme favors darker backgrounds (hex #222) and so inverts font colors to be readable on it.
+
 ## Copyright & License
 Casper's Copyright follows below.
 
