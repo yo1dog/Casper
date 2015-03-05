@@ -1457,6 +1457,10 @@ body:not(.post-template):not(.author-template) .main-header {
 .site-wrapper, .nav {
    background-color: #222;
 }
+.post-template .site-wrapper,
+.page-template .site-wrapper {
+   background-color: #FFF;
+}
 
 .post {
     margin: 0 auto;
@@ -1491,16 +1495,16 @@ body:not(.post-template):not(.author-template) .main-header {
     margin-left: 0;
     padding-left: 0;
 }
-.post-title,
+body:not(.post-template):not(.page-template) .post-title,
 .post-title a,
 .post-excerpt a {
     color: white;
 }
 /**
-Tympanus sexy hover : [ Title ]
+Tympanus sexy hover on excerpts.
     http://tympanus.net/Development/CreativeLinkEffects/#cl-effect-1
 */
-.read-more>p::after, .post-title::after {
+.read-more p::after, .post-title a::after {
     display: inline-block;
     opacity: 0;
     margin-left: 10px;
@@ -1510,12 +1514,8 @@ Tympanus sexy hover : [ Title ]
     transition: transform 0.3s, opacity 0.2s;
 }
 
-.read-more:focus, .post-title:focus{
-    outline: none;
-}
-
-.read-more:hover>p::after, .post-title:hover::after,
-.read-more:focus>p::after, .post-title:focus::after{
+.read-more:hover p::after, .post-title:hover a::after,
+.read-more:focus p::after, .post-title:focus a::after{
     opacity: 1;
 }
 end tympanus */
