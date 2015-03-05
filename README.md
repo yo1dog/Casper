@@ -4,15 +4,16 @@ This is a customization of the default theme for [Ghost](http://github.com/trygh
 
 To download, visit the [releases](https://github.com/novaugust/novasper/releases) page.
 
-## Live Demo
+## Differences From Casper
 
-## Key Differences
+### Demo
+This blog is always live over at [blog.novaugust.net](http://blog.novaugust.net)
 
 #### Post image
 
 This theme prioritizes photos. On any page with post excerpts (home page, archive page, author page, tag page, etc), the post's image is displayed as a full-width background image behind the post excerpt.
 
-![Post excerpt example]()
+![Post excerpt example](https://raw.githubusercontent.com/novaugust/Novasper/novasper/screenshots/post-excerpt.png)
 
 The image is again emphasized in the header of the post.
 
@@ -22,7 +23,7 @@ Images in posts are blown out to 100% of the user's viewport, without going beyo
 
 Vertically oriented images are limited to 150% of the user's viewport's height, meaning they'll require scrolling, but won't be unhandleable
 
-![Fullscreen image]()
+![Fullscreen image](https://raw.githubusercontent.com/novaugust/Novasper/novasper/screenshots/fullscreen-example.png)
 
 #### Tympanus Post Title Hover Effects
 
