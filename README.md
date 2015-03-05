@@ -1,10 +1,35 @@
-# Casper
+# Novasper
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/).
+This is a customization of the default theme for [Ghost](http://github.com/tryghost/ghost/), [Casper](http://github.com/tryghost/casper/)).
 
-To download, visit the [releases](https://github.com/TryGhost/Casper/releases) page.
+To download, visit the [releases](https://github.com/novaugust/novasper/releases) page.
+
+## Live Demo
+
+## Key Differences
+
+#### Post image
+
+This theme prioritizes photos. On any page with post excerpts (home page, archive page, author page, tag page, etc), the post's image is displayed as a full-width background image behind the post excerpt.
+
+![Post excerpt example]()
+
+The image is again emphasized in the header of the post.
+
+#### Images in posts
+
+Images in posts are blown out to 100% of the user's viewport, without going beyond the image's actual dimensions and stretching.
+
+Vertically oriented images are limited to 150% of the user's viewport's height, meaning they'll require scrolling, but won't be unhandleable
+
+![Fullscreen image]()
+
+#### Tympanus Post Title Hover Effects
+
+There's a cute animation when you hover over post titles. That's all.
 
 ## Copyright & License
+Casper's Copyright follows below.
 
 Copyright (c) 2013-2015 Ghost Foundation - Released under the MIT License.
 
