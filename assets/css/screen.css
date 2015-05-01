@@ -1518,7 +1518,7 @@ Tympanus sexy hover on excerpts.
 .read-more:focus p::after, .post-title:focus a::after{
     opacity: 1;
 }
-end tympanus */
+/*end tympanus */
 
 /* Set off caption text */
 
@@ -1568,8 +1568,13 @@ body:not(.post-template):not(.page-template) .site-footer a:hover{
     color: #AAA;
 }
 
+/* smaller margins on footer & pagination*/
+.pagination {
+   margin: 2rem auto;
+}
 .site-footer {
-    border-top: none;
+   margin-top: 2rem;
+   border-top: none;
 }
 
 
