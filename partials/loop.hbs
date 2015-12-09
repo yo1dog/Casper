@@ -9,7 +9,9 @@
             <a class="read-more" href="{{url}}"><p>{{#if meta_description}}{{meta_description}}{{else}}{{excerpt words="26"}}{{/if}}</p></a>
         </section>
         <footer class="post-meta">
-            {{!--#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if--}}
+            {{!--
+            {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
+            --}}
             {{author}}
             {{tags prefix=" on "}}
             <br>

@@ -11,13 +11,14 @@
     4.  General
     5.  Single Post
     6.  Tag Archive
-    7.  Third Party Elements
-    8.  Pagination
-    9.  Footer
-    10. Media Queries (Tablet)
-    11. Media Queries (Mobile)
-    12. Animations
-    13. Novasper
+    7.  Read Next
+    8.  Third Party Elements
+    9.  Pagination
+    10.  Footer
+    11. Media Queries (Tablet)
+    12. Media Queries (Mobile)
+    13. Animations
+    14. Novasper
 
 */
 
@@ -107,11 +108,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Import the font file with the icons in it */
 @font-face {
     font-family: "casper-icons";
-    src:url("../fonts/casper-icons.eot");
-    src:url("../fonts/casper-icons.eot?#iefix") format("embedded-opentype"),
-        url("../fonts/casper-icons.woff") format("woff"),
-        url("../fonts/casper-icons.ttf") format("truetype"),
-        url("../fonts/casper-icons.svg#icons") format("svg");
+    src:url("../fonts/casper-icons.eot?v=1");
+    src:url("../fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"),
+        url("../fonts/casper-icons.woff?v=1") format("woff"),
+        url("../fonts/casper-icons.ttf?v=1") format("truetype"),
+        url("../fonts/casper-icons.svg?v=1#icons") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -161,6 +162,14 @@ table { border-collapse: collapse; border-spacing: 0; }
 .icon-link:before {
     content: "\f608";
 }
+.icon-menu:before {
+    content: "\f609";
+}
+/*
+    IMPORTANT: When making any changes to the icon font, be sure to increment
+    the version number by 1 in the @font-face rule. `?v=1` becomes `?v=2`
+    This forces browsers to download the new font file.
+*/
 
 
 /* ==========================================================================
@@ -325,7 +334,7 @@ blockquote cite {
 blockquote cite a { font-weight: normal; }
 
 mark {
-    background-color: #FFC336;
+    background-color: #fdffb6;
 }
 
 code, tt {
@@ -481,6 +490,8 @@ body.nav-opened .site-wrapper {
     -webkit-transform: translate3D(-240px, 0, 0);
         -ms-transform: translate3D(-240px, 0, 0);
             transform: translate3D(-240px, 0, 0);
+    -webkit-transition: -webkit-transform 0.3s ease;
+            transition: transform 0.3s ease;
 }
 
 
@@ -552,9 +563,9 @@ body.nav-closed .nav {
 
 body.nav-opened .nav {
     opacity: 1;
-    -webkit-transition: -webkit-transform 0.5s ease,
+    -webkit-transition: -webkit-transform 0.3s ease,
                         opacity 0s ease 0s;
-            transition: transform 0.5s ease,
+            transition: transform 0.3s ease,
                         opacity 0s ease 0s;
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
@@ -685,7 +696,7 @@ body.nav-opened .nav {
     right: 30px;
     height: 38px;
     padding: 0 20px;
-    color: #111 !important;
+    color: #111 !important; /* Overides `.nav a:link, .nav a:visited` colour */
     text-align: center;
     font-size: 12px;
     font-family: "Open Sans", sans-serif;
@@ -753,12 +764,12 @@ body.nav-opened .nav {
     display: none
 }
 
-/* Appears in the top right corner of your home page */
+/* Appears in the top left corner of your home page */
 .blog-logo {
     display: block;
     float: left;
-    background: none !important;
-    border: none !important;
+    background: none !important; /* Makes sure there is never a background */
+    border: none !important; /* Makes sure there is never a border */
 }
 
 .blog-logo img {
@@ -779,37 +790,63 @@ body.nav-opened .nav {
     float: right;
     height: 38px;
     padding: 0 15px;
-    border: #bfc8cd 1px solid;
+    border-style: solid;
+    border-width: 1px;
     opacity: 1;
-    color: #9EABB3;
     text-align: center;
     font-size: 12px;
     text-transform: uppercase;
     line-height: 35px;
     white-space: nowrap;
     border-radius: 3px;
-    background: rgba(0,0,0,0.1);
-    transition: all 0.6s ease;
+    transition: all 0.5s ease;
+}
+.menu-button:before {
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 6px;
+    position: relative;
+    top: 1px;
+}
+.menu-button:hover {
+    background: #fff;
 }
 .menu-button:focus {
     outline: 0;
 }
-.menu-button .burger {
-    font-size: 12px;
-    margin-right: 6px;
+
+/* When the navigation is closed */
+.nav-closed .menu-button {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+.nav-closed .menu-button:hover {
+    color: #222;
 }
 
-body.nav-opened .menu-button {
+/* When the navigation is closed and there is no cover image */
+.nav-closed .no-cover .menu-button {
+    border-color: #BFC8CD;
+    color: #9EABB3;
+}
+.nav-closed .no-cover .menu-button:hover {
+    border-color: #555;
+    color: #555;
+}
+
+/* When the navigation is opened */
+.nav-opened .menu-button {
     padding: 0 12px;
-    background: #111 !important;
-    border-color: #111 !important;
-    color: #fff !important;
+    background: #111;
+    border-color: #111;
+    color: #fff;
     -webkit-transform: translate3D(94px, 0, 0);
         -ms-transform: translate3D(94px, 0, 0);
             transform: translate3D(94px, 0, 0);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
-body.nav-opened .menu-button .word {
+
+.nav-opened .menu-button .word {
     opacity: 0;
     transition: all 0.3s ease;
 }
@@ -824,29 +861,8 @@ body.nav-opened .menu-button .word {
     border: none;
     background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
 }
-.no-cover .main-nav.overlay,
-.no-cover .menu-button {
+.no-cover .main-nav.overlay {
     background: none;
-}
-
-.main-nav.overlay a {
-    color: #fff;
-}
-
-.main-nav.overlay .menu-button {
-    border-color: rgba(255,255,255,0.6);
-}
-
-.main-nav.overlay a:hover {
-    color: #222;
-    border-color: #fff;
-    background: #fff;
-}
-
-/* Add a border to the buttons on hover */
-.menu-button:hover {
-    border-color: #555;
-    color: #555;
 }
 
 /* The details of your blog. Defined in ghost/settings/ */
@@ -883,11 +899,6 @@ body.nav-opened .menu-button .word {
     color: rgba(0,0,0,0.5);
 }
 
-.no-cover .main-nav.overlay .menu-button {
-    color: rgba(0,0,0,0.4);
-    border-color: rgba(0,0,0,0.3);
-}
-
 /* Add subtle load-in animation for content on the home page */
 .home-template .page-title {
     -webkit-animation: fade-in-down 0.6s;
@@ -911,10 +922,6 @@ body.nav-opened .menu-button .word {
     padding-bottom: 4rem;
     border-bottom: #EBF2F6 1px solid;
     word-wrap: break-word;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
 }
 
 /* Add a little circle in the middle of the border-bottom on our .post
@@ -1091,6 +1098,25 @@ body:not(.post-template) .post-title {
     transform: translateX(-50%);
 }
 
+.footnotes {
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.6em;
+}
+
+.footnotes li {
+    margin: 0.6rem 0;
+}
+
+.footnotes p {
+    margin: 0;
+}
+
+.footnotes p a:last-child {
+    text-decoration: none;
+}
+
+
 /* The author credit area after the post */
 .post-footer {
     position: relative;
@@ -1161,8 +1187,14 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-footer .share a:hover {
-    color: #50585D;
+.post-footer .share .icon-twitter:hover {
+    color: #55acee;
+}
+.post-footer .share .icon-facebook:hover {
+    color: #3b5998;
+}
+.post-footer .share .icon-google-plus:hover {
+    color: #dd4b39;
 }
 
 
@@ -1298,8 +1330,134 @@ body:not(.post-template) .post-title {
     display: none;
 }
 
+
 /* ==========================================================================
-   7. Third Party Elements - Embeds from other services
+   7. Read More - Next/Prev Post Links
+   ========================================================================== */
+
+.read-next {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-top: 10rem;
+}
+
+.read-next-story {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 50%;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background: #222 no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+.read-next-story:hover:before {
+    background: rgba(0,0,0,0.8);
+    transition: all 0.2s ease;
+}
+.read-next-story:hover .post:before {
+    color: #222;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.read-next-story:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    transition: all 0.5s ease;
+}
+
+.read-next-story .post {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.read-next-story .post:before {
+    content: "Read This Next";
+    padding: 4px 10px 5px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-family: "Open Sans", sans-serif;
+    color: rgba(255,255,255,0.8);
+    border: rgba(255,255,255,0.5) 1px solid;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+}
+.read-next-story.prev .post:before {
+    content: "You Might Enjoy";
+}
+
+.read-next-story h2 {
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.read-next-story p {
+    margin: 0;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Special styles for posts with no cover images */
+.read-next-story.no-cover {
+    background: #f5f8fa;
+}
+
+.read-next-story.no-cover:before {
+    display: none;
+}
+
+.read-next-story.no-cover .post:before {
+    color: rgba(0,0,0,0.5);
+    border-color: rgba(0,0,0,0.2);
+}
+
+.read-next-story.no-cover h2 {
+    color: rgba(0,0,0,0.8);
+}
+
+.read-next-story.no-cover p {
+    color: rgba(0,0,0,0.5);
+}
+
+/* if there are two posts without covers, put a border between them */
+.read-next-story.no-cover + .read-next-story.no-cover {
+    border-left: rgba(0,0,100,0.04) 1px solid;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Correctly position site-footer when next to the .read-next container */
+.read-next + .site-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+}
+
+/* ==========================================================================
+   8. Third Party Elements - Embeds from other services
    ========================================================================== */
 
 /* Github */
@@ -1319,8 +1477,9 @@ body:not(.post-template) .post-title {
     margin-bottom: 1.75em;
 }
 
+
 /* ==========================================================================
-   8. Pagination - Tools to let you flick between pages
+   9. Pagination - Tools to let you flick between pages
    ========================================================================== */
 
 /* The main wrapper for our pagination links */
@@ -1372,8 +1531,6 @@ body:not(.post-template) .post-title {
     border-color: #98a0a4;
 }
 
-<<<<<<< HEAD
-=======
 .extra-pagination {
     display: none;
     border-bottom: #EBF2F6 1px solid;
@@ -1403,14 +1560,13 @@ body:not(.post-template) .post-title {
 }
 
 /* ==========================================================================
-   9. Footer - The bottom of every page
+   10. Footer - The bottom of every page
    ========================================================================== */
 
 .site-footer {
     position: relative;
     margin: 8rem 0 0 0;
-    padding: 0.5rem 15px;
-    border-top: #EBF2F6 1px solid;
+    padding: 1rem 15px;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.75em;
@@ -1424,7 +1580,7 @@ body:not(.post-template) .post-title {
 }
 
 .site-footer a:hover {
-    color: #50585D;
+    border-bottom: #bbc7cc 1px solid;
 }
 
 .poweredby {
@@ -1441,8 +1597,467 @@ body:not(.post-template) .post-title {
 }
 
 
+
 /* ==========================================================================
-   13. Novasper
+   11. Media Queries - Smaller than 900px
+   ========================================================================== */
+
+@media only screen and (max-width: 900px) {
+
+    blockquote {
+        margin-left: 0;
+    }
+
+    .main-header {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: auto;
+        min-height: 240px;
+        height: 60vh;
+        padding: 15% 0;
+    }
+
+    .scroll-down,
+    .home-template .main-header:after { display: none; }
+
+    .archive-template .main-header {
+        min-height: 180px;
+        padding: 10% 0;
+    }
+
+    .blog-logo img {
+        padding: 4px 0;
+    }
+
+    .page-title {
+        font-size: 4rem;
+        letter-spacing: -1px;
+    }
+
+    .page-description {
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+
+    .post {
+        font-size: 0.95em
+    }
+
+    body:not(.post-template) .post-title {
+        font-size: 3.2rem;
+    }
+
+    hr {
+        margin: 2.4em 0;
+    }
+
+    ol, ul {
+        padding-left: 2em;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        text-indent: -2px;
+    }
+
+    h2 {
+        font-size: 3.6rem;
+    }
+
+    h3 {
+        font-size: 3.1rem;
+    }
+
+    h4 {
+        font-size: 2.5rem;
+    }
+
+    h5 {
+        font-size: 2.2rem;
+    }
+
+    h6 {
+        font-size: 1.8rem;
+    }
+
+    .author-profile {
+        padding-bottom: 4rem;
+    }
+
+    .author-profile .author-bio {
+        font-size: 1.6rem;
+    }
+
+    .author-meta span {
+        display: block;
+        margin: 1.5rem 0;
+    }
+    .author-profile .author-meta span {
+        font-size: 1.6rem;
+    }
+
+    .post-head.main-header {
+        height:45vh;
+    }
+
+    .tag-head.main-header,
+    .author-head.main-header {
+        height: 30vh;
+    }
+
+    .no-cover.post-head.main-header {
+        height: 55px;
+        padding: 0;
+    }
+
+    .no-cover.author-head.main-header {
+        padding: 0;
+    }
+
+    .read-next {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+
+    .read-next p {
+        display: none;
+    }
+
+    .read-next-story.no-cover + .read-next-story.no-cover {
+        border-top: rgba(0,0,100,0.06) 1px solid;
+        border-left: none;
+    }
+
+}
+
+
+/* ==========================================================================
+   12. Media Queries - Smaller than 500px
+   ========================================================================== */
+
+@media only screen and (max-width: 500px) {
+
+    .main-header {
+        margin-bottom: 15px;
+        height: 40vh;
+    }
+
+    .no-cover.main-header {
+        height: 30vh;
+    }
+
+    .archive-template .main-header {
+        max-height: 20vh;
+        min-height: 160px;
+        padding: 10% 0;
+    }
+
+    .main-nav {
+        padding: 5px;
+        margin-bottom: 2rem;
+    }
+
+    .blog-logo {
+        padding: 5px;
+    }
+
+    .blog-logo img {
+        height: 30px;
+    }
+
+    .menu-button {
+        padding: 0 5px;
+        border-radius: 0;
+        border-width: 0;
+        color: #2e2e2e;
+        background: transparent;
+    }
+    .menu-button:hover {
+        color: #2e2e2e;
+        border-color: transparent;
+        background: none;
+    }
+    body.nav-opened .menu-button {
+        background: none;
+        border: transparent;
+    }
+
+    .main-nav.overlay a:hover {
+        color: #fff;
+        border-color: transparent;
+        background: transparent;
+    }
+
+    .no-cover .main-nav.overlay {
+        background: none;
+    }
+    .no-cover .main-nav.overlay .menu-button {
+        border: none;
+    }
+
+    .main-nav.overlay .menu-button {
+        border-color: transparent;
+    }
+
+    .nav-title {
+        top: 25px;
+
+    }
+
+    .nav-close {
+        position: absolute;
+        top: 18px;
+    }
+
+    .nav ul {
+        padding: 60px 9% 5%;
+    }
+
+    .inner,
+    .pagination {
+        width: auto;
+        margin: 2rem auto;
+    }
+
+    .post {
+        width: auto;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-left: 16px;
+        margin-right: 16px;
+        padding-bottom: 2rem;
+        line-height: 1.65em;
+    }
+
+    .post-date {
+        display: none;
+    }
+
+    .post-template .post-header {
+        margin-bottom: 2rem;
+    }
+
+    .post-template .post-date {
+        display: inline-block;
+    }
+
+    hr {
+        margin: 1.75em 0;
+    }
+
+    p, ul, ol, dl {
+        font-size: 0.95em;
+        margin: 0 0 2.5rem 0;
+    }
+
+    .page-title {
+        font-size: 3rem;
+    }
+
+    .post-excerpt p {
+        font-size: 0.85em;
+    }
+
+    .page-description {
+        font-size: 1.6rem;
+    }
+
+    h1, h2, h3,
+    h4, h5, h6 {
+        margin: 0 0 0.3em 0;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        letter-spacing: -1px;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        letter-spacing: 0;
+    }
+
+    h3 {
+        font-size: 2.1rem;
+    }
+
+    h4 {
+        font-size: 1.9rem;
+    }
+
+    h5 {
+        font-size: 1.8rem;
+    }
+
+    h6 {
+        font-size: 1.8rem;
+    }
+
+    body:not(.post-template) .post-title {
+        font-size: 2.5rem;
+    }
+
+    .post-template .site-footer {
+        margin-top: 0;
+    }
+
+    .post-content img {
+        padding: 0;
+    }
+
+    .post-meta {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+    }
+
+    .post-footer {
+        padding: 5rem 0 3rem 0;
+        text-align: center;
+    }
+
+    .post-footer .author {
+        margin: 0 0 2rem 0;
+        padding: 0 0 1.6rem 0;
+        border-bottom: #EBF2F6 1px dashed;
+    }
+
+    .post-footer .share {
+        position: static;
+        width: auto;
+    }
+
+    .post-footer .share a {
+        margin: 1.4rem 0.8rem 0 0.8rem;
+    }
+
+    .author-meta li {
+        float: none;
+        margin: 0;
+        line-height: 1.75em;
+    }
+
+    .author-meta li:before {
+        display: none;
+    }
+
+    .older-posts,
+    .newer-posts {
+        position: static;
+        margin: 10px 0;
+    }
+
+    .page-number {
+        display: block;
+    }
+
+    .site-footer {
+        margin-top: 3rem;
+    }
+
+    .author-profile {
+        padding-bottom: 2rem;
+    }
+
+    .post-head.main-header {
+        height: 30vh;
+    }
+
+    .tag-head.main-header,
+    .author-head.main-header {
+        height: 20vh;
+    }
+
+    .author-profile .author-image {
+        margin-top: -70px;
+    }
+
+    .author-profile .author-meta span {
+        font-size: 1.4rem;
+    }
+
+    .archive-template .main-header .page-description {
+        display: none;
+    }
+
+    .read-next {
+        margin-top: 2rem;
+        margin-bottom: -37px;
+    }
+
+    .read-next .post {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================================================
+   13. Animations
+   ========================================================================== */
+
+/* Used to fade in title/desc on the home page */
+@-webkit-keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes fade-in-down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+/* Used to bounce .scroll-down on home page */
+@-webkit-keyframes bounce {
+    0%, 10%, 25%, 40%, 50% {
+        -webkit-transform: translateY(0) rotate(-90deg);
+                transform: translateY(0) rotate(-90deg);
+    }
+    20% {
+        -webkit-transform: translateY(-10px) rotate(-90deg);
+                transform: translateY(-10px) rotate(-90deg);
+    }
+    30% {
+        -webkit-transform: translateY(-5px) rotate(-90deg);
+                transform: translateY(-5px) rotate(-90deg);
+    }
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0) rotate(-90deg);
+                transform: translateY(0) rotate(-90deg);
+    }
+    40% {
+        -webkit-transform: translateY(-10px) rotate(-90deg);
+                transform: translateY(-10px) rotate(-90deg);
+    }
+    60% {
+        -webkit-transform: translateY(-5px) rotate(-90deg);
+                transform: translateY(-5px) rotate(-90deg);
+    }
+}
+
+/* ==========================================================================
+   14. Novasper
    ========================================================================== */
 /* invert colors on non-post pages */
 body:not(.post-template) {
@@ -1594,445 +2209,6 @@ body:not(.post-template):not(.page-template) .site-footer a:hover{
         padding: 0;
     }
 }
-
-
-
-/* ==========================================================================
-   10. Media Queries - Smaller than 900px
-   ========================================================================== */
-
-@media only screen and (max-width: 900px) {
-
-    blockquote {
-        margin-left: 0;
-    }
-
-    .main-header {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        height: auto;
-        min-height: 240px;
-        height: 60vh;
-        padding: 15% 0;
-    }
-
-    .scroll-down,
-    .home-template .main-header:after { display: none; }
-
-    .archive-template .main-header {
-        min-height: 180px;
-        padding: 10% 0;
-    }
-
-    .blog-logo img {
-        padding: 4px 0;
-    }
-
-    .page-title {
-        font-size: 4rem;
-        letter-spacing: -1px;
-    }
-
-    .page-description {
-        font-size: 1.8rem;
-        line-height: 1.5em;
-    }
-
-    .post {
-        font-size: 0.95em
-    }
-
-    body:not(.post-template) .post-title {
-        font-size: 3.2rem;
-    }
-
-    hr {
-        margin: 2.4em 0;
-    }
-
-    ol, ul {
-        padding-left: 2em;
-    }
-
-    h1 {
-        font-size: 4.5rem;
-        text-indent: -2px;
-    }
-
-    h2 {
-        font-size: 3.6rem;
-    }
-
-    h3 {
-        font-size: 3.1rem;
-    }
-
-    h4 {
-        font-size: 2.5rem;
-    }
-
-    h5 {
-        font-size: 2.2rem;
-    }
-
-    h6 {
-        font-size: 1.8rem;
-    }
-
-    .author-profile {
-        padding-bottom: 4rem;
-    }
-
-    .author-profile .author-bio {
-        font-size: 1.6rem;
-    }
-
-    .author-meta span {
-        display: block;
-        margin: 1.5rem 0;
-    }
-    .author-profile .author-meta span {
-        font-size: 1.6rem;
-    }
-
-    .post-head.main-header {
-        height:45vh;
-    }
-
-    .tag-head.main-header,
-    .author-head.main-header {
-        height: 30vh;
-    }
-
-    .no-cover.post-head.main-header {
-        height: 55px;
-        padding: 0;
-    }
-
-    .no-cover.author-head.main-header {
-        padding: 0;
-    }
-
-}
-
-
-/* ==========================================================================
-   11. Media Queries - Smaller than 500px
-   ========================================================================== */
-
-@media only screen and (max-width: 500px) {
-
-    .main-header {
-        margin-bottom: 15px;
-        height: 40vh;
-    }
-
-    .no-cover.main-header {
-        height: 30vh;
-    }
-
-    .archive-template .main-header {
-        max-height: 20vh;
-        min-height: 160px;
-        padding: 10% 0;
-    }
-
-    .main-nav {
-        padding: 5px;
-        margin-bottom: 2rem;
-    }
-
-    .blog-logo {
-        padding: 5px;
-    }
-
-    .blog-logo img {
-        height: 30px;
-    }
-
-    .menu-button {
-        padding: 0 5px;
-        border-radius: 0;
-        border-color: transparent;
-        color: #2e2e2e;
-        background: transparent;
-    }
-    .menu-button:hover {
-        color: #2e2e2e;
-        border-color: transparent;
-        background: none;
-    }
-    body.nav-opened .menu-button {
-        background: none !important;
-        border: transparent !important;
-    }
-
-    .main-nav.overlay a:hover {
-        color: #fff;
-        border-color: transparent;
-        background: transparent;
-    }
-
-    .no-cover .main-nav.overlay {
-        background: none;
-    }
-    .no-cover .main-nav.overlay .menu-button {
-        border: none;
-    }
-
-    .main-nav.overlay .menu-button {
-        border-color: transparent;
-    }
-
-    .nav-title {
-        top: 25px;
-
-    }
-
-    .nav-close {
-        position: absolute;
-        top: 18px;
-    }
-
-    .nav ul {
-        padding: 60px 9% 5%;
-    }
-
-    .inner,
-    .pagination {
-        width: auto;
-        margin: 2rem auto;
-    }
-
-    .post {
-        width: auto;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-        margin-left: 16px;
-        margin-right: 16px;
-        padding-bottom: 2rem;
-        line-height: 1.65em;
-    }
-
-    .post-date {
-        display: none;
-    }
-
-    .post-template .post-header {
-        margin-bottom: 2rem;
-    }
-
-    .post-template .post-date {
-        display: inline-block;
-    }
-
-    hr {
-        margin: 1.75em 0;
-    }
-
-    p, ul, ol, dl {
-        font-size: 0.95em;
-        margin: 0 0 2.5rem 0;
-    }
-
-    .page-title {
-        font-size: 3rem;
-    }
-
-    .post-excerpt p {
-        font-size: 0.85em;
-    }
-
-    .page-description {
-        font-size: 1.6rem;
-    }
-
-    h1, h2, h3,
-    h4, h5, h6 {
-        margin: 0 0 0.3em 0;
-    }
-
-    h1 {
-        font-size: 2.8rem;
-        letter-spacing: -1px;
-    }
-
-    h2 {
-        font-size: 2.4rem;
-        letter-spacing: 0;
-    }
-
-    h3 {
-        font-size: 2.1rem;
-    }
-
-    h4 {
-        font-size: 1.9rem;
-    }
-
-    h5 {
-        font-size: 1.8rem;
-    }
-
-    h6 {
-        font-size: 1.8rem;
-    }
-
-    body:not(.post-template) .post-title {
-        font-size: 2.5rem;
-    }
-
-    .post-template .post {
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-
-    .post-template .site-footer {
-        margin-top: 0;
-    }
-
-    .post-content img {
-        padding: 0;
-    }
-
-    .post-meta {
-        font-size: 1.3rem;
-        margin-top: 1rem;
-    }
-
-    .post-footer {
-        padding: 5rem 0 3rem 0;
-        text-align: center;
-    }
-
-    .post-footer .author {
-        margin: 0 0 2rem 0;
-        padding: 0 0 1.6rem 0;
-        border-bottom: #EBF2F6 1px dashed;
-    }
-
-    .post-footer .share {
-        position: static;
-        width: auto;
-    }
-
-    .post-footer .share a {
-        margin: 1.4rem 0.8rem 0 0.8rem;
-    }
-
-    .author-meta li {
-        float: none;
-        margin: 0;
-        line-height: 1.75em;
-    }
-
-    .author-meta li:before {
-        display: none;
-    }
-
-    .older-posts,
-    .newer-posts {
-        position: static;
-        margin: 10px 0;
-    }
-
-    .page-number {
-        display: block;
-    }
-
-    .site-footer {
-        margin-top: 3rem;
-    }
-
-    .author-profile {
-        padding-bottom: 2rem;
-    }
-
-    .post-head.main-header {
-        height: 30vh;
-    }
-
-    .tag-head.main-header,
-    .author-head.main-header {
-        height: 20vh;
-    }
-
-    .author-profile .author-image {
-        margin-top: -70px;
-    }
-
-    .author-profile .author-meta span {
-        font-size: 1.4rem;
-    }
-
-    .archive-template .main-header .page-description {
-        display: none;
-    }
-
-}
-
-
-/* ==========================================================================
-   12. Animations
-   ========================================================================== */
-
-/* Used to fade in title/desc on the home page */
-@-webkit-keyframes fade-in-down {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-@keyframes fade-in-down {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-10px);
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
-
-/* Used to bounce .scroll-down on home page */
-@-webkit-keyframes bounce {
-    0%, 10%, 25%, 40%, 50% {
-        -webkit-transform: translateY(0) rotate(-90deg);
-                transform: translateY(0) rotate(-90deg);
-    }
-    20% {
-        -webkit-transform: translateY(-10px) rotate(-90deg);
-                transform: translateY(-10px) rotate(-90deg);
-    }
-    30% {
-        -webkit-transform: translateY(-5px) rotate(-90deg);
-                transform: translateY(-5px) rotate(-90deg);
-    }
-}
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        -webkit-transform: translateY(0) rotate(-90deg);
-                transform: translateY(0) rotate(-90deg);
-    }
-    40% {
-        -webkit-transform: translateY(-10px) rotate(-90deg);
-                transform: translateY(-10px) rotate(-90deg);
-    }
-    60% {
-        -webkit-transform: translateY(-5px) rotate(-90deg);
-                transform: translateY(-5px) rotate(-90deg);
-    }
-}
-
 
 /* ==========================================================================
    End of file. Animations should be the last thing here. Do not add stuff
