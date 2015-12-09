@@ -2193,6 +2193,15 @@ body:not(.post-template):not(.page-template) .site-footer a:hover{
 }
 
 
+/* next / prev footers on post page */
+
+.read-next-story .post:before {
+    content: "Next Post";
+}
+.read-next-story.prev .post:before {
+    content: "Previous Post";
+}
+
 @media only screen and (max-width: 500px) {
     .post-excerpt-wrapper,
     .post-excerpt-wrapper.post-image {
