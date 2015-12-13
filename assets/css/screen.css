@@ -2077,9 +2077,6 @@ body:not(.post-template):not(.author-template) .main-header {
    background-color: #FFF;
 }
 
-.post {
-    margin: 0 auto;
-}
 /* hide those circles */
 .post::after{
     display: none;
