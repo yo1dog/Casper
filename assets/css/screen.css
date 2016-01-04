@@ -2157,7 +2157,7 @@ Tympanus sexy hover on excerpts.
 /* Fullwidth images */
 .post-content img {
    max-width: 100vw;
-   max-height: 150vh;
+   max-height: 120vh;
 }
 
 /* buttons - invert the colors so it's visible on our dark background */
