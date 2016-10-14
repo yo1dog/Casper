@@ -948,6 +948,9 @@ body.nav-opened .nav {
     font-family: "Open Sans", sans-serif;
     color: #fff;
 }
+.page-title a {
+    text-decoration: none;
+}
 
 .page-description {
     margin: 0;
@@ -1300,9 +1303,12 @@ body:not(.page-template) .post-title {
 }
 
 .no-cover.post-head.main-header {
+    /*
     height: 85px;
     min-height: 0;
-    margin-bottom: 0;
+    */
+    height: 150px;
+    /*margin-bottom: 0;*/
     background: transparent;
 }
 
@@ -1862,10 +1868,12 @@ body:not(.page-template) .post-title {
         height: 30vh;
     }
 
+    
     .no-cover.post-head.main-header {
         height: 55px;
-        padding: 0;
+        /*padding: 0;*/
     }
+    
 
     .no-cover.author-head.main-header {
         padding: 0;
