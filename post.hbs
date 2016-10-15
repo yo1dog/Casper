@@ -56,7 +56,7 @@
                 {{/if}}
                 <div class="author-meta">
                     {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-                    {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+                    {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{trim_proto website}}</a></span>{{/if}}
                 </div>
             </section>
 
