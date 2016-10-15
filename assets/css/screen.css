@@ -184,9 +184,10 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: "Merriweather", serif;
+    font-family: "Roboto", sans-serif;
     letter-spacing: 0.01rem;
-    font-size: 1.8rem;
+    /*font-size: 1.8rem;*/
+    font-size: 1.6rem;
     line-height: 1.75em;
     color: #3A4145;
     -webkit-font-feature-settings: 'kern' 1;
@@ -957,7 +958,7 @@ body.nav-opened .nav {
     font-size: 2rem;
     line-height: 1.5em;
     font-weight: 400;
-    font-family: "Merriweather", serif;
+    font-family: "Roboto", sans-serif;
     letter-spacing: 0.01rem;
     color: rgba(255,255,255,0.8);
 }
@@ -1409,7 +1410,7 @@ body:not(.page-template) .post-title {
 /* Location, website, and link */
 .author-profile .author-meta {
     margin: 2rem 0;
-    font-family: "Merriweather", serif;
+    font-family: "Roboto", sans-serif;
     letter-spacing: 0.01rem;
     font-size: 1.7rem;
 }
@@ -2202,9 +2203,9 @@ body:not(.page-template) .post-title {
 }
 
 .post-content pre {
-    margin-top: 0px;
-    margin-bottom: 1.5em;
-    line-height: 1.5;
+  margin-top: 0px;
+  margin-bottom: 1.5em;
+  line-height: 1.4;
 }
 
 .post-content ol, ul {
@@ -2213,18 +2214,17 @@ body:not(.page-template) .post-title {
 }
 
 .post-content h1 {
-    margin-top: 1.75em;
+  margin-top: 1.75em;
 }
 .post-content h2 {
-    margin-top: 1.75em;
+  margin-top: 1.75em;
 }
 .post-content h3 {
-    margin-top: 1.75em;
+  margin-top: 1.75em;
 }
 .post-content h4 {
-    margin-top: 1.75em;
+  margin-top: 1.75em;
 }
-
 
 /* ==========================================================================
    14. Animations
