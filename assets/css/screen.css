@@ -1830,9 +1830,9 @@ body:not(.page-template) .post-title {
         font-size: 0.95em
     }
 
-    body:not(.post-template) .post-title,
-    body:not(.page-template) .post-title {
-        font-size: 3.2rem;
+    .home-template .post-title {
+        font-size: 2rem;
+        font-weight: normal;
     }
 
     hr {
@@ -2056,9 +2056,11 @@ body:not(.page-template) .post-title {
         line-height: 1.65em;
     }
 
+    /*
     .post-date {
         display: none;
     }
+    */
 
     .post-template .post-header,
     .page-template .post-header {
@@ -2122,9 +2124,9 @@ body:not(.page-template) .post-title {
         font-size: 1.8rem;
     }
 
-    body:not(.post-template) .post-title,
-    body:not(.page-template) .post-title {
-        font-size: 2.5rem;
+    .home-template .post-title {
+        font-size: 2rem;
+        font-weight: normal;
     }
 
     .post-template .site-footer,
