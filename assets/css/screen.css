@@ -764,27 +764,43 @@ body.nav-opened .nav {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    display: block;
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
+    display: inline-block;
+    float: right;
     height: 38px;
-    padding: 0 20px;
-    color: #111 !important; /* Overides `.nav a:link, .nav a:visited` colour */
+    padding: 0 15px;
+    color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
     text-align: center;
     font-size: 12px;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     line-height: 35px;
-    border-radius: 3px;
-    background: #fff;
+    white-space: nowrap;
     transition: all ease 0.3s;
 }
 .subscribe-button:before {
-    font-size: 9px;
+    font-size: 12px;
+    font-weight: bold;
     margin-right: 6px;
+    position: relative;
+    top: 1px;
+}
+.subscribe-button:hover {
+    color: #222;
+}
+
+/* When there is no cover image */
+.no-cover .subscribe-button {
+    border-color: #BFC8CD;
+    color: #9EABB3;
+}
+.no-cover .subscribe-button:hover {
+    border-color: #555;
+    color: #555;
 }
 
 
@@ -1972,6 +1988,19 @@ body:not(.page-template) .post-title {
         border: transparent;
     }
 
+    .subscribe-button {
+        padding: 0 5px;
+        border-radius: 0;
+        border-width: 0;
+        color: #2e2e2e;
+        background: transparent;
+    }
+    .subscribe-button:hover {
+        color: #2e2e2e;
+        border-color: transparent;
+        background: none;
+    }
+
     .main-nav.overlay a:hover {
         color: #fff;
         border-color: transparent;
@@ -1985,7 +2014,15 @@ body:not(.page-template) .post-title {
         border: none;
     }
 
+    .no-cover .main-nav.overlay .subscribe-button {
+        border: none;
+    }
+
     .main-nav.overlay .menu-button {
+        border-color: transparent;
+    }
+
+    .main-nav.overlay .subscribe-button {
         border-color: transparent;
     }
 
