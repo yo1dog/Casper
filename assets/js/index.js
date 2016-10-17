@@ -55,7 +55,6 @@
     };
     
     
-    // we put the script element here to avoid flashing the description.
     var DESC_COOKIE_NAME = "animated-desc-time";
     var DESC_ANIMATE_WAIT_TIME_MS = 1*60*60*1000;
     
@@ -69,7 +68,7 @@
     }
     
     function getShouldAnimateDesc() {
-      const descLastAnimatedTimeMS = getDescLastAnimatedTime();
+      var descLastAnimatedTimeMS = getDescLastAnimatedTime();
       
       if (descLastAnimatedTimeMS === null) {
         return true;
@@ -81,7 +80,7 @@
 
     function getDescLastAnimatedTime() {
       // get the cookie value for the last time we animated the description
-      const cookieValue = getCookieValue(DESC_COOKIE_NAME);
+      var cookieValue = getCookieValue(DESC_COOKIE_NAME);
       
       if (!cookieValue) {
         return null;
@@ -157,7 +156,7 @@
       var DEFAULT_START_DELAY = 0;
       var DEFAULT_ELEM_DELAY  = 25;
       
-      this.elems          = elems
+      this.elems          = elems;
       this.startDelayMS   = startDelayMS   || DEFAULT_START_DELAY;
       this.minElemDelayMS = minElemDelayMS || DEFAULT_ELEM_DELAY;
       this.maxElemDelayMS = maxElemDelayMS || minElemDelayMS;
@@ -182,7 +181,7 @@
           }
         }
       };
-    };
+    }
 
 
     // splits each character of an element's text into a span element 
